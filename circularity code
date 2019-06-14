@@ -1,0 +1,36 @@
+import numpy as np
+import cv2
+from matplotlib import pyplot as plt
+import os
+import glob
+import math
+import cvs
+
+def get_image_paths(folder): #这个函数的作用的获取文件的列表,注释部分是获取    
+    # return (os.path.join(folder, f)    #     for f in os.listdir(folder)    
+    #         if 'png' in f)     
+    return glob.glob(os.path.join(folder, '*.png'))
+
+def count(a):
+    for img in img_path:
+        img = cv2.imread(a,0)
+    ret,thresh = cv2.threshold(img,127,255,cv2.THRESH_BINARY_INV)
+    contours,hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+    cnt = contours[0]
+    M = cv2.moments(cnt)
+
+    A = int(cv2.contourArea(cnt))
+    B = int(cv2.arcLength(cnt,True))
+    b = int(B)
+    C = print(12.56*A/b/b*11.09)
+    return A
+    return B
+    return C
+    
+    
+    img_path = 'C:/1/'
+imgs = get_image_paths(img_path)
+for img in imgs:
+    D = count(img)
+    print(D)
+    print(img)
