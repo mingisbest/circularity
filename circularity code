@@ -41,3 +41,15 @@ for img in imgs:
     D = count(img)
     print(D)
     print(img)
+  
+  #如果要输出到文本，用下面程序替换
+  '''
+       f = open("D:/output2.txt", "w")
+    img_path = 'C:/16-2/'
+    imgs = get_image_paths(img_path)
+    for img in imgs:
+        D = count(img)
+        print(D,file = f)
+        print(img)   
+    f.close()
+'''
